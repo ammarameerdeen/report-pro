@@ -1,0 +1,128 @@
+﻿<style>
+        .report-container {
+        width: 100%;
+        overflow-y: auto;
+    }
+
+    .report-table {
+        width: 100%;
+        padding: 10px;
+    }
+.clear {
+    clear: both;
+}
+
+
+
+.custom-text-box{
+    background-color: #eee !important;
+}
+ li.active{
+     background-color : black;
+ }
+
+.selected {
+    background-color : grey !important ;
+}
+
+
+.menu-open {
+
+}
+.paginate_button{
+        display: inline-block;
+    padding: 10px;
+    background: rgba(69, 90, 100, 0.74);
+    color: white;
+    border-radius: 2px;
+    margin: 2px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    -webkit-user-select: none; /* Chrome/Safari */ 
+}
+.paginate_button:hover{
+    color : white ;
+    text-decoration : none ;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor : pointer;
+}
+
+.disabled{
+    pointer-events : none;
+}
+
+.btn-report{
+    background-color : maroon !important;
+    color : white;
+    padding : 15px;
+    margin : 15px ;
+    display : inline;
+    align-content : center;
+    text-decoration : none;
+    float : left;
+}
+
+.btn-reset{
+    background-color: grey;
+    padding : 15px;
+    margin : 15px ;
+    display : inline;
+    align-content : center;
+    float : right;
+}
+
+.btn-column-filter{
+    background-color: grey;
+    padding : 15px;
+    margin : 15px ;
+    display : inline;
+    align-content : center;
+    float : left;
+}
+
+.row-filter{
+    border : none;
+    border-bottom : 2px solid black !important;
+}
+.report-heading{
+    font-size : 24px;
+    align-content : center;
+}
+</style>
+
+<div class="report-container">
+    <table id="products-table">
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+@section scripts{
+    <script>
+
+        $("#products-table").reportGenerator(
+            {
+                "bLengthChange": false,
+                "columns": [
+                        { "data": "ProductId" },
+                        { "data": "ProductName" },
+                        { "data": "StocksQuantity" },
+                ],
+                "reportTitle" : "My Report"
+            }
+            );
+    </script>
+}
